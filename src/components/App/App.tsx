@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import css from './App.module.css';
-import type { Values, VoteType } from '../../types/votes.ts';
+import type { Votes, VoteType } from '../../types/votes.ts';
 import CafeInfo from '../CafeInfo/CafeInfo';
 import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats.tsx';
 import Notification from '../Notification/Notification.tsx';
 export default function App() {
-  const [votes, setVotes] = useState<Values>({
+  const [votes, setVotes] = useState<Votes>({
     good: 0,
     neutral: 0,
     bad: 0,
@@ -40,7 +40,7 @@ export default function App() {
       />
       {canReset ? (
         <VoteStats
-          {...votes}
+          votes={votes}
           totalVotes={totalVotes}
           positiveRate={positiveRate}
         />
